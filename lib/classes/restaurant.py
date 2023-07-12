@@ -14,11 +14,11 @@ class Restaurant:
         else:
             raise Exception
         
-    def reviews(self, new_review=None):
+    def reviews(self):
         from classes.review import Review
         return [review for review in Review.all if review.restaurant == self]
     
-    def customers(self, new_customer=None):
+    def customers(self):
         from classes.review import Review
         return [review.customer for review in Review.all if review.restaurant == self]
 
@@ -26,7 +26,3 @@ class Restaurant:
         from classes.review import Review
         r = [review.rating for review in Review.all if review.restaurant == self]
         return sum(r) / len(r)
-
-    @classmethod
-    def get_all_restaurants(cls):
-        pass
